@@ -1,0 +1,18 @@
+---
+dotfile_files:
+  - .ackrc
+  - .agignore
+  - .emacs.d
+  - .gitk
+  - .gvimrc
+  - .tmux.conf
+  - .vim
+  - .zsh
+  - .zshenv
+  - .zshrc
+
+dotfile_templates:
+  - .gitconfig
+
+git_user_email: '{{"victor.0w3@gmail.com" if lookup("env", "USER") == "glh" else ""}}'
+git_user_name: '{{"Victor" if lookup("env", "USER") == "glh" else ""}}'
