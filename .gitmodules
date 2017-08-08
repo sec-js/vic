@@ -1,6 +1,3 @@
-[submodule "roles/dotfiles/files/.mutt/mutt-notmuch-py"]
-	path = roles/dotfiles/files/.mutt/vendor/mutt-notmuch-py
-	url = https://github.com/honza/mutt-notmuch-py.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/opt/vim-pathogen"]
 	path = roles/dotfiles/files/.vim/pack/bundle/opt/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
@@ -16,10 +13,6 @@
 	ignore = dirty
 	path = roles/dotfiles/files/.vim/pack/bundle/start/command-t
 	url = https://github.com/wincent/command-t.git
-[submodule "roles/dotfiles/files/.vim/pack/bundle/start/ferret"]
-	ignore = untracked
-	path = roles/dotfiles/files/.vim/pack/bundle/start/ferret
-	url = https://github.com/wincent/ferret.git
 [submodule "roles/dotfiles/files/.vim/pack/bundle/start/indentLine"]
 	path = roles/dotfiles/files/.vim/pack/bundle/start/indentLine
 	url = https://github.com/Yggdroot/indentLine.git
