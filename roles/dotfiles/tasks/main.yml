@@ -2,9 +2,6 @@
 - name: dotfiles | make ~/.config
   file: path=~/.config state=directory
 
-- name: dotfiles | symlink nvim to vim
-  file: path=~/.config/nvim src=~/.vim state=link
-
 - name: dotfiles | create backup directory
   file: path=~/.backups state=directory
 
@@ -37,17 +34,3 @@
 - name: dotfiles | create templates
   template: src={{ item }} dest={{ ansible_env.HOME }}/{{ item }}
   with_items: '{{dotfile_templates}}'
-
-# Provide an extension point for other roles to dump .zshenv stuff into.
-- name: dotfiles | make ~/.zshenv.d
-  file: path=~/.zshenv.d state=directory
-
-# Make some directories required by configuration in the dotfiles; these should
-# probably be separate roles.
-- name: dotfiles | create auxiliary directories
-  file: path={{ item }} state=directory
-  with_items:
-    # mbsync will die on first sync without these.
-    - ~/.mail
-    - ~/.mail/Home
-    - ~/.mail/Work

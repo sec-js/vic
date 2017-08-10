@@ -2,13 +2,12 @@
 dotfile_files:
   - .ackrc
   - .agignore
-  - .emacs.d
   - .gitk
   - .gvimrc
   - .tmux.conf
   - .vim
+  - .emacs.d
   - .zsh
-  - .zshenv
   - .zshrc
 
 dotfile_templates:
