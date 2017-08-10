@@ -1,0 +1,5 @@
+# Include OS specific tasks
+- include: CentOS.yml
+  when: ansible_distribution == "CentOS"
+- include: Ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
