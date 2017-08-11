@@ -251,9 +251,6 @@ Insert it in the first line of the buffer, right justified."
         (goto-char (point-max))
         (spacemacs-buffer/insert-page-break)
         (insert "\n")
-        (when badge
-          (insert-image badge)
-          (spacemacs-buffer//center-line badge-size))
         (when heart
           (when badge (insert "\n\n"))
           (insert build-lhs)
