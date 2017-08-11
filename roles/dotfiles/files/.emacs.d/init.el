@@ -28,7 +28,6 @@
   (require 'core-spacemacs)
   (spacemacs/init)
   (configuration-layer/sync)
-  (spacemacs-buffer/display-startup-note)
   (spacemacs/setup-startup-hook)
   (require 'server)
   (unless (server-running-p) (server-start)))
