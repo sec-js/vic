@@ -665,3 +665,8 @@ if [ -e /etc/motd ]; then
     tee $HOME/.hushlogin < /etc/motd
   fi
 fi
+
+#
+# ZSH
+#
+# exec zsh
