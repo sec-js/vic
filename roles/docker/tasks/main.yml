@@ -1,0 +1,61 @@
+---
+- name: Removing deprecated docker versions
+  apt:
+    name: "{{item}}"
+    state: absent
+    install_recommends: no
+  with_items:
+    - docker
+    - docker-engine
+    - docker.io
+
+- name: Update cache for Ubuntu 14.04
+  apt:
+    update_cache: yes
+  when: ansible_distribution_version == "14.04"
+
+- name: Installing requirements for Ubuntu 14.04
+  apt:
+    name: "{{item}}"
+    state: latest
+    install_recommends: no
+  with_items:
+    - linux-image-extra-{{ansible_kernel}}
+    - linux-image-extra-virtual
+  when: ansible_distribution_version == "14.04"
+
+- name: Installing requirements
+  apt:
+    name: "{{item}}"
+    state: latest
+    install_recommends: no
+  with_items:
+    - curl
+    - apt-transport-https
+    - ca-certificates
+    - software-properties-common
+
+- name: Adding GPG Keys
+  apt_key:
+    url: "https://download.docker.com/linux/ubuntu/gpg"
+    state: present
+
+- name: Adding docker's repository in source lists
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+    state: present
+
+- name: Update cache
+  apt:
+    update_cache: yes
+
+- name: Installing docker-ce
+  apt:
+    name: docker-ce
+    state: latest
+
+- name: Downloading docker-compose
+  get_url:
+    url: https://github.com/docker/compose/releases/download/{{dockerComposeVersion}}/docker-compose-{{ansible_system}}-{{ansible_architecture}}
+    dest: /usr/local/bin/docker-compose
+    mode: 0755
