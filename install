@@ -105,6 +105,12 @@ fi
 
 source vendor/ansible/hacking/env-setup &> $DEV_NULL
 
+if [  -n "$(uname -a | grep Ubuntu)" ]; then
+    # Installing python-apt and moving the libs to virtualenv | python
+    apt install python-apt
+    cp -pr /usr/lib/python2.7/dist-packages/apt* python/lib/python2.7/site-packages/
+fi
+
 HOST_OS=$(uname)
 
 if [ "$HOST_OS" = 'Darwin' ]; then
