@@ -4,3 +4,6 @@
   with_items:
     - tmux
     - vim
+    - zsh
+- name: Changing shell from bash to zsh
+  command: chsh -s $(which zsh)
