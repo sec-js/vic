@@ -12,6 +12,3 @@ dotfile_files:
 
 dotfile_templates:
   - .gitconfig
-
-git_user_email: '{{"victor.0w3@gmail.com" if lookup("env", "USER") == "glh" else ""}}'
-git_user_name: '{{"Victor" if lookup("env", "USER") == "glh" else ""}}'
