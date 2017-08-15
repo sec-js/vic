@@ -9,6 +9,7 @@ dotfile_files:
   - .emacs.d
   - .zsh
   - .zshrc
+  - .tmux
 
 dotfile_templates:
   - .gitconfig
