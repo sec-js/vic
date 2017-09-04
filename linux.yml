@@ -1,12 +1,13 @@
 ---
 - hosts: localhost
-
   vars_prompt:
     - name: "git_user_email"
-      prompt: "what is your git email?"
+      prompt: "what is your git email? {{myvar}}"
+      default: "victor.0w3@gmail.com"
       private: no
     - name: "git_user_name"
       prompt: "what is your git user?"
+      default: "Victor Igor"
       private: no
 
   roles:
