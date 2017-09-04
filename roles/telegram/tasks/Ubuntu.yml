@@ -1,0 +1,8 @@
+---
+ - name: Add telegram repository
+   apt_repository: repo="ppa:atareao/telegram"
+
+ - name: Ensure Telegram is installed
+   apt:
+     name: telegram
+     state: "{{telegram_pkg_state}}"

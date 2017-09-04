@@ -1,3 +1,2 @@
 ---
-# Package states: installed or latest
-spotify_pkg_state: installed
+spotify_pkg_state: present
