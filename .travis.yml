@@ -6,6 +6,10 @@ before_install:
  - sudo apt-get install -qq python-apt python-pycurl
 install:
   - pip install ansible
+  - pip install urllib3
+  - pip pyopenssl
+  - pip ndg-httpsclient
+  - pip pyasn1
   - ansible --version
 script:
   - echo localhost > inventory
