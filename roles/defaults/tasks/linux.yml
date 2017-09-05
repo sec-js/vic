@@ -1,3 +1,9 @@
+- name: add emacs repository
+  apt_repository:
+    repo: 'ppa:kelleyk/emacs'
+    state: present
+    update_cache: yes
+
 - name: install basic packages
   action: >
     {{ansible_pkg_mgr}} name={{ item }} state=present
