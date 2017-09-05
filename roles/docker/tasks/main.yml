@@ -39,6 +39,11 @@
   apt_key:
     url: "https://download.docker.com/linux/ubuntu/gpg"
     state: present
+  when: travis == "false"
+
+- name: Adding GPG Keys - Travis
+  shell: "/usr/bin/curl https://download.docker.com/linux/ubuntu/gpg | /usr/bin/apt-key add -"
+  when: travis == "true"
 
 - name: Adding docker's repository in source lists
   apt_repository:
