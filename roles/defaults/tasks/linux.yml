@@ -12,3 +12,4 @@
     - vim
     - zsh
     - emacs25
+  tags: ["all_apps", "defaults"]

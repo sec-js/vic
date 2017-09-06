@@ -2,4 +2,4 @@
 - name: Rules for Ubuntu
   include: Ubuntu.yml
   when: ansible_distribution == 'Ubuntu'
-  tags: ["packages", "Telegram"]
+  tags: ["all_apps", "Telegram"]
