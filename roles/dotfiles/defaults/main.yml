@@ -10,6 +10,7 @@ dotfile_files:
   - .zsh
   - .zshrc
   - .tmux
+  - .spacemacs
   - .oh-my-zsh
 
 dotfile_templates:
