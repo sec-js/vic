@@ -1,4 +1,6 @@
 # Vic
+[![Build Status](https://travis-ci.org/victorvoid/vic.svg?branch=master)](https://travis-ci.org/victorvoid/vic)
+
 My Ansible Playbooks to install and config my emacs, tmux, vim, git, zsh, etc aimed at working in Linux & OSX.
 
 
