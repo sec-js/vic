@@ -86,8 +86,8 @@ You should not put any user code in there besides modifying the variable
 values."
   ;; This setq-default sexp is an exhaustive list of all the supported
   (setq-default js2-basic-offset 2
-                ;; js2-mode-show-parse-errors nil
-                ;; js2-mode-show-strict-warnings nil
+                js2-mode-show-parse-errors nil
+                js2-mode-show-strict-warnings nil
                 js-indent-level 2)
   ;; spacemacs settings.
   (setq-default
