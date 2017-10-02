@@ -48,7 +48,7 @@ values."
      markdown
      colors
      helm
-     (auto-completion)
+     auto-completion
      github
      better-defaults
      emacs-lisp
@@ -315,10 +315,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq mouse-wheel-progressive-speed nil)
   (setq powerline-default-separator 'arrow))
 
-(defun toggle-js2-web-mode ()
-  (interactive)
-  (if (equal major-mode 'js2-mode) (web-mode) (js2-mode)))
-
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
   This function is called at the very end of Spacemacs initialization after
@@ -327,24 +323,30 @@ before packages are loaded. If you are unsure, you should try in setting them in
   explicitly specified that a variable should be set before a package is loaded,
   you should place your code here."
 
-  (setup-indent 2)
   ;; use eslint config
   (setq flycheck-eslintrc ".eslintrc")
   (add-hook 'js2-mode-hook 'js2-mode-hide-warnings-and-errors)
+  (add-hook 'js2-mode-hook (lambda () (setq js2-basic-offset 2)))
+
+  ;; This setq-default sexp is an exhaustive list of all the supported
+  (setq-default js2-basic-offset 2
+                js-indent-level 2)
+
 
   ;; show snippets in autocomplete
   (setq-default dotspacemacs-configuration-layers
                 '((auto-completion :variables
                                    auto-completion-enable-snippets-in-popup t)))
+
   (with-eval-after-load 'web-mode
     (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
     (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
+
   ;; jsx extensions
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
   (setq all-the-icons-color-icons t)
-  (setq all-the-icons-for-buffer t)
-  )
+  (setq all-the-icons-for-buffer t))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
