@@ -48,7 +48,9 @@ values."
      markdown
      colors
      helm
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-enable-help-tooltip t
+                      auto-completion-enable-snippets-in-popup t)
      github
      better-defaults
      emacs-lisp
