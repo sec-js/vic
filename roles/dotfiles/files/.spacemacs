@@ -325,6 +325,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
   explicitly specified that a variable should be set before a package is loaded,
   you should place your code here."
 
+  ;;clojure pretty symbols
+  (setq clojure-enable-fancify-symbols t)
   ;; use eslint config
   (setq flycheck-eslintrc ".eslintrc")
   (add-hook 'js2-mode-hook 'js2-mode-hide-warnings-and-errors)
