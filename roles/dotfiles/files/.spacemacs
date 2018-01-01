@@ -32,6 +32,8 @@ values."
    dotspacemacs-configuration-layers
    '(
      sql
+     ocaml
+     elm
      yaml
      rust
      typescript
@@ -46,7 +48,7 @@ values."
      nginx
      shell
      markdown
-     colors
+     (colors :variables colors-enable-nyan-cat-progress-bar t)
      helm
      (auto-completion :variables
                       auto-completion-enable-help-tooltip t
@@ -59,6 +61,8 @@ values."
 
    dotspacemacs-additional-packages '(base16-theme
                                       all-the-icons
+                                      stylus-mode
+                                      kibit-helper
                                       editorconfig
                                       sweetjs-mode
                                       all-the-icons-ivy
