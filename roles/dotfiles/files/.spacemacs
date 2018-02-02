@@ -36,6 +36,7 @@ values."
      elm
      yaml
      rust
+     elixir
      typescript
      haskell
      clojure
