@@ -1,6 +1,6 @@
-export ZSH=/home/victorigor/.oh-my-zsh
+export ZSH=/home/victor/.oh-my-zsh
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="avit"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
