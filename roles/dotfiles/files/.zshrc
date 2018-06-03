@@ -1,7 +1,4 @@
-export ZSH=/home/victor/.oh-my-zsh
-if [ "$(uname)" = "Darwin" ]; then
-  export ZSH=/Users/victorigor/.oh-my-zsh
-fi
+export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="avit"
 plugins=(git)

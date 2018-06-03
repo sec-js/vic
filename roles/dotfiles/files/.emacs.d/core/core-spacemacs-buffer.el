@@ -13,10 +13,10 @@
 ;;
 ;;; Code:
 
-(defconst spacemacs-buffer-version-info "0.200.9"
+(defconst spacemacs-buffer-version-info "0.200.13"
   "Current version used to display addition release information.")
 
-(defconst spacemacs-buffer-name "*spacemacs*"
+(defconst spacemacs-buffer-name "*victorbuffer*"
   "The name of the spacemacs buffer.")
 
 (defconst spacemacs-buffer-logo-title "[Victor Igor]"
@@ -130,6 +130,25 @@ Cate special text banner can de reachable via `998', `cat' or `random*'.
       (spacemacs-buffer//insert-buttons)
       (spacemacs//redisplay))))
 
+(defun spacemacs-buffer/display-startup-note ()
+  "Decide of the startup note and display it if relevant."
+  (when (file-exists-p spacemacs-buffer--cache-file)
+    (load spacemacs-buffer--cache-file))
+  (cond
+   (spacemacs-buffer--fresh-install
+    ;; we assume the user is  new to spacemacs and open the quickhelp
+    (spacemacs-buffer/toggle-note 'quickhelp)
+    (setq spacemacs-buffer--release-note-version spacemacs-version)
+    (spacemacs/dump-vars-to-file '(spacemacs-buffer--release-note-version)
+                                 spacemacs-buffer--cache-file))
+   ((or (not spacemacs-buffer--release-note-version)
+        (version< spacemacs-buffer--release-note-version
+                  spacemacs-version))
+    ;; check the variable spacemacs-buffer--release-note-version
+    ;; to decide whether we show the release note
+    (spacemacs-buffer/toggle-note 'release-note)))
+  (spacemacs//redisplay))
+
 (defun spacemacs-buffer//choose-banner ()
   "Return the full path of a banner based on the dotfile value."
   (when dotspacemacs-startup-banner
@@ -232,6 +251,9 @@ Insert it in the first line of the buffer, right justified."
         (goto-char (point-max))
         (spacemacs-buffer/insert-page-break)
         (insert "\n")
+        (when badge
+          (insert-image badge)
+          (spacemacs-buffer//center-line badge-size))
         (when heart
           (when badge (insert "\n\n"))
           (insert build-lhs)
@@ -593,7 +615,6 @@ REAL-WIDTH: the real width of the line.  If the line contains an image, the size
   "Create and insert the interactive buttons under Spacemacs banner."
   (goto-char (point-max))
   (spacemacs-buffer||add-shortcut "m" "[?]" t)
-  (insert " ")
   (widget-create 'url-link
                  :tag (propertize "?" 'face 'font-lock-doc-face)
                  :help-echo "Open the quickhelp."
@@ -602,8 +623,34 @@ REAL-WIDTH: the real width of the line.  If the line contains an image, the size
                  :mouse-face 'highlight
                  :follow-link "\C-m")
   (insert " ")
+  (widget-create 'url-link
+                 :tag (propertize "Homepage" 'face 'font-lock-keyword-face)
+                 :help-echo "Open the Spacemacs Github page in your browser."
+                 :mouse-face 'highlight
+                 :follow-link "\C-m"
+                 "http://spacemacs.org")
   (insert " ")
+  (widget-create 'url-link
+                 :tag (propertize "Documentation" 'face 'font-lock-keyword-face)
+                 :help-echo "Open the Spacemacs documentation in your browser."
+                 :mouse-face 'highlight
+                 :follow-link "\C-m"
+                 "http://spacemacs.org/doc/DOCUMENTATION.html")
   (insert " ")
+  (widget-create 'url-link
+                 :tag (propertize "Gitter Chat" 'face 'font-lock-keyword-face)
+                 :help-echo
+                 "Ask questions and chat with fellow users in our chat room."
+                 :mouse-face 'highlight
+                 :follow-link "\C-m"
+                 "https://gitter.im/syl20bnr/spacemacs")
+  (insert " ")
+  (widget-create 'push-button
+                 :help-echo "Update Spacemacs core and layers."
+                 :action (lambda (&rest ignore) (spacemacs/switch-to-version))
+                 :mouse-face 'highlight
+                 :follow-link "\C-m"
+                 (propertize "Update Spacemacs" 'face 'font-lock-keyword-face))
   (let ((len (- (line-end-position)
                 (line-beginning-position))))
     (spacemacs-buffer//center-line)
@@ -619,9 +666,41 @@ REAL-WIDTH: the real width of the line.  If the line contains an image, the size
                  :follow-link "\C-m"
                  (propertize "Update Packages" 'face 'font-lock-keyword-face))
   (insert " ")
+  (widget-create 'push-button
+                 :help-echo
+                 "Rollback ELPA package updates if something got borked."
+                 :action (lambda (&rest ignore)
+                           (call-interactively 'configuration-layer/rollback))
+                 :mouse-face 'highlight
+                 :follow-link "\C-m"
+                 (propertize "Rollback Package Update"
+                             'face 'font-lock-keyword-face))
   (spacemacs-buffer//center-line)
   (insert "\n")
+  (widget-create 'push-button
+                 :tag (propertize "Release Notes"
+                                  'face 'font-lock-preprocessor-face)
+                 :help-echo "Hide or show the Changelog"
+                 :action (lambda (&rest ignore)
+                           (spacemacs-buffer/toggle-note 'release-note))
+                 :mouse-face 'highlight
+                 :follow-link "\C-m")
   (insert " ")
+  (widget-create 'url-link
+                 :tag (propertize "Search in Spacemacs"
+                                  'face 'font-lock-function-name-face)
+                 :help-echo "Search Spacemacs contents."
+                 :action
+                 (lambda (&rest ignore)
+                   (let ((comp-frontend
+                          (cond
+                           ((configuration-layer/layer-usedp 'helm)
+                            'helm-spacemacs-help)
+                           ((configuration-layer/layer-usedp 'ivy)
+                            'ivy-spacemacs-help))))
+                     (call-interactively comp-frontend)))
+                 :mouse-face 'highlight
+                 :follow-link "\C-m")
   (spacemacs-buffer//center-line)
   (insert "\n\n"))
 
