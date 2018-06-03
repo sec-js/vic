@@ -1,0 +1,30 @@
+- name: start installing homebrew applications
+  homebrew:
+    name: "{{item}}"
+    state: latest
+  with_items:
+    - git
+    - tree
+    - httpie
+    - curl
+    - wget
+    - zsh
+    - vim
+    - tmux
+
+- name: start installing homebrew cask applications
+  homebrew_cask:
+    name: "{{item}}"
+    state: installed 
+  with_items:
+    - google-chrome
+    - slack
+    - iterm2
+    - caffeine
+    - docker
+    - emacs
+    - 1password
+    - alfred
+    - spotify
+    - telegram
+    - steam
