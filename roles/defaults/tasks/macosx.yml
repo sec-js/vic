@@ -11,6 +11,11 @@
     - zsh
     - vim
     - tmux
+    - ack
+    - node
+    - python
+    - python3
+    - terminal-notifier
 
 - name: start installing homebrew cask applications
   homebrew_cask:
@@ -18,6 +23,7 @@
     state: installed 
   with_items:
     - google-chrome
+    - firefox
     - slack
     - iterm2
     - caffeine
@@ -28,3 +34,5 @@
     - spotify
     - telegram
     - steam
+    - skype
+    - spectacle
