@@ -235,7 +235,8 @@ layers configuration. You are free to put any user code."
   (setq-default js2-basic-offset 2
                 js-indent-level 2)
   (setq helm-split-window-inside-p t)
-
+  (setq js2-mode-show-parse-errors nil)
+  (setq js2-mode-show-strict-warnings nil)
   (setq all-the-icons-color-icons t)
   (setq all-the-icons-for-buffer t))
 
