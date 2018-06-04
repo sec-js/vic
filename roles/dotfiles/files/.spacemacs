@@ -110,7 +110,18 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(dracula
-                         spacemacs-dark)
+                         apropospriate-dark
+                         spacemacs-dark
+                         base16-dracula
+                         base16-flat
+                         base16-ocean
+                         base16-nord
+                         base16-porple
+                         base16-onedark
+                         base16-eighties
+                         base16-materia
+                         base16-material
+                         base16-oceanicnext)
    ;; If non nil the cursor color matches the state color.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
