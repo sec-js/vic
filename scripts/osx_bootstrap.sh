@@ -25,6 +25,7 @@ PACKAGES=(
     zsh
     vim
     tmux
+    zplug
     ack
     node
     python

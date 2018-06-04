@@ -10,6 +10,7 @@
     - wget
     - zsh
     - vim
+    - zplug
     - tmux
     - ack
     - node
