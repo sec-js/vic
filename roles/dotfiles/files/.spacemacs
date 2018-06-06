@@ -63,7 +63,7 @@ values."
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '(base16-theme
-                                      all-the-icons
+                                      🗌all-the-icons
                                       stylus-mode
                                       kibit-helper
                                       editorconfig
@@ -110,8 +110,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(dracula
-                         apropospriate-dark
+   dotspacemacs-themes '(apropospriate-dark
+                         dracula
                          spacemacs-dark
                          base16-dracula
                          base16-flat
@@ -254,6 +254,7 @@ layers configuration. You are free to put any user code."
  '(cua-normal-cursor-color "#657b83")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
+ '(evil-want-Y-yank-to-eol t)
  '(highlight-symbol-colors
    (--map
     (solarized-color-blend it "#fdf6e3" 0.25)
@@ -268,7 +269,7 @@ layers configuration. You are free to put any user code."
     ("#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3" "#fdf6e3")))
  '(indent-guide-delay 0.3 t)
  '(indent-tabs-mode nil)
- '(neo-auto-indent-point t t)
+ '(neo-auto-indent-point t)
  '(neo-theme (quote icons))
  '(package-selected-packages
    (quote
