@@ -231,14 +231,23 @@ user code."
   "Configuration function for user code.
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+  (setq-default
+    ;; js2-mode
+    js2-basic-offset 2
+    ;; web-mode
+    css-indent-offset 2
+    web-mode-markup-indent-offset 2
+    web-mode-css-indent-offset 2
+    web-mode-code-indent-offset 2
+    web-mode-attr-indent-offset 2)
+
   (add-hook 'alchemist-mode-hook 'company-mode)
   (add-hook 'prog-mode-hook #'whitespace-mode)
   (setq html-indent-level 2)
-  (setq-default js2-basic-offset 2
-                js-indent-level 2)
   (setq helm-split-window-inside-p t)
   (setq js2-mode-show-parse-errors nil)
   (setq js2-mode-show-strict-warnings nil)
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . react-mode))
   (setq all-the-icons-color-icons t)
   (setq all-the-icons-for-buffer t))
 
