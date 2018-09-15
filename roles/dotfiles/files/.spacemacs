@@ -51,7 +51,7 @@ values."
      elm
      rust
      typescript
-     clojure
+     (clojure :variables clojure-enable-fancify-symbols t)
      vimscript
      react
      nginx
@@ -229,8 +229,27 @@ user code."
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
- This function is called at the very end of Spacemacs initialization after
-layers configuration. You are free to put any user code."
+   This function is called at the very end of Spacemacs initialization after
+   layers configuration. You are free to put any user code."
+
+  (global-prettify-symbols-mode 1)
+
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              (push '("<=" . ?≤) prettify-symbols-alist)))
+
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              (push '("|>" . ?⟹) prettify-symbols-alist)))
+
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              (push '("<|" . ?⟸) prettify-symbols-alist)))
+
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              (push '("<|>" . ?⟺) prettify-symbols-alist)))
+
   (setq-default
     ;; js2-mode
     js2-basic-offset 2

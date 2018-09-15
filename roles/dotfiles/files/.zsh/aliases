@@ -2,6 +2,7 @@
 # Command aliases
 #
 
+alias gaa='git add .'
 alias ....='cd ../..'
 alias :e=vim
 alias :qa=exit
