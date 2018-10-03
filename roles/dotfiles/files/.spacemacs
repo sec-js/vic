@@ -27,6 +27,7 @@ values."
                         auto-completion-enable-snippets-in-popup t)
      erlang
      elixir
+     parinfer
      emacs-lisp
      dash
      osx
