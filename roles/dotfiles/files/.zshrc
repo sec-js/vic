@@ -4,6 +4,9 @@ ZSH_THEME="avit"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH=~/.local/bin:$PATH
+
 
 #
 # Other
