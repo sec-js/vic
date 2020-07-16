@@ -12,11 +12,9 @@
     - vim
     - zplug
     - tmux
-    - ack
     - node
     - python
     - python3
-    - terminal-notifier
 
 - name: start installing homebrew cask applications
   homebrew_cask:

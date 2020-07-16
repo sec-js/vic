@@ -12,6 +12,7 @@ dotfile_files:
   - .tmux
   - .spacemacs
   - .oh-my-zsh
+  - .doom.d
 
 dotfile_templates:
   - .gitconfig
