@@ -53,3 +53,4 @@
 (package! multi-vterm)
 (package! chronometer)
 (package! centered-cursor-mode)
+(package! go-mode)
