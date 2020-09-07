@@ -15,6 +15,7 @@
     - node
     - python
     - python3
+    - ripgrep
 
 - name: start installing homebrew cask applications
   homebrew_cask:
