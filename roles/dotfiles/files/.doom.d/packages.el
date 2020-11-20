@@ -54,3 +54,4 @@
 (package! chronometer)
 (package! centered-cursor-mode)
 (package! go-mode)
+(package! editorconfig)
