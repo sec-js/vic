@@ -55,6 +55,8 @@ alias mkdir='nocorrect mkdir'
 alias mv='nocorrect mv'
 alias stack='nocorrect stack'
 alias sudo='nocorrect sudo'
+alias itau-forms='cd /Users/vmartins/Documents/work/itau-forms/'
+alias cartoes='cd /Users/vmartins/Documents/work/cartoes.itau.com.br'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
