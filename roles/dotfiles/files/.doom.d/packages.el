@@ -55,3 +55,4 @@
 (package! centered-cursor-mode)
 (package! go-mode)
 (package! editorconfig)
+(package! prettier-js)
