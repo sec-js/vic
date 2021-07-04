@@ -1,3 +1,11 @@
+;; doom
+;;
+(setq doom-font (font-spec :family "JetBrains Mono" :size 24)
+      doom-big-font (font-spec :family "JetBrains Mono" :size 36)
+      doom-variable-pitch-font (font-spec :family "Overpass" :size 24)
+      doom-unicode-font (font-spec :family "JuliaMono")
+      doom-serif-font (font-spec :family "IBM Plex Mono" :weight 'light))
+
 (setq user-full-name "Victor Igor"
       user-mail-address "victor.0w3@gmail.com")
 (setq doom-theme 'doom-monokai-pro)
@@ -38,4 +46,3 @@
 (map! :leader
       (:prefix-map ("t" . "toggle")
        ("-" #'centered-cursor-mode)))
-
