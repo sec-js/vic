@@ -12,6 +12,11 @@
 (setq org-directory "~/org/")
 (setq display-line-numbers-type t)
 
+(add-hook 'dired-mode-hook
+      (lambda ()
+        (dired-hide-details-mode)
+        (dired-sort-toggle-or-edit)))
+
 (setq
   global-whitespace-mode +1)
 
@@ -20,6 +25,12 @@
 ;;
 ;; expand-region
 (map! :n "SPC v" #'er/expand-region)
+;;
+;;
+;;
+;;Avy
+(map! :n "SPC j" #'avy-goto-char)
+(map! :n "SPC k" #'avy-goto-char)
 
 ;; prettier-js
 (add-hook 'js2-mode-hook 'prettier-js-mode)
@@ -27,7 +38,7 @@
 
 (setq prettier-js-args '(
   "--trailing-comma" "all"
-  "--bracket-spacing" "false"
+  "--bracket-spacing" "true"
 ))
 
 
@@ -46,3 +57,5 @@
 (map! :leader
       (:prefix-map ("t" . "toggle")
        ("-" #'centered-cursor-mode)))
+
+(setq scroll-conservatively 101)
