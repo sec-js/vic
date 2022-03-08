@@ -61,6 +61,14 @@ You can use the same role name
 sudo ./install --tags="telegram"
 ```
 
+## Install fonts
+
+
+```sh
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+```
+
 Authors
 --------
 The repo is written and maintained by [Victor Igor](https://github.com/victorvoid). Other contributors that have submitted  something, in alphabetical order:

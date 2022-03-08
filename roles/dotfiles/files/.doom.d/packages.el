@@ -49,10 +49,22 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
-
+(package! gitconfig-mode
+	  :recipe (:host github :repo "magit/git-modes"
+			 :files ("gitconfig-mode.el")))
+(package! gitignore-mode
+	  :recipe (:host github :repo "magit/git-modes"
+			 :files ("gitignore-mode.el")))
 (package! multi-vterm)
 (package! chronometer)
 (package! centered-cursor-mode)
 (package! go-mode)
-(package! editorconfig)
+;; (package! editorconfig)
 (package! prettier-js)
+(package! sublime-themes)
+(package! atom-one-dark-theme)
+(package! graphql-mode)
+(package! mmm-mode)
+(package! vscode-icon)
+(package! unicode-fonts)
+(package! web-beautify)
