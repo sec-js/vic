@@ -7,9 +7,11 @@
       doom-serif-font (font-spec :family "IBM Plex Mono" :weight 'light)
       projectile-project-search-path '("~/Documents/work" "~/Documents/personal"))
 
+;; (setq fancy-splash-image (concat doom-private-dir "splash/snoopy-3.gif"))
+
 (setq user-full-name "Victor Igor"
       user-mail-address "victor.0w3@gmail.com")
-(setq doom-theme 'doom-dracula)
+(setq doom-theme 'doom-flatwhite)
 (setq org-directory "~/org/")
 (setq display-line-numbers-type t)
 
@@ -37,6 +39,8 @@
 (add-hook 'js2-mode-hook 'prettier-js-mode)
 (add-hook 'typescript-mode 'prettier-js-mode)
 (add-hook 'web-mode-hook 'prettier-js-mode)
+
+(exec-path-from-shell-initialize)
 
 (setq prettier-js-args '(
   "--trailing-comma" "all"

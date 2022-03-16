@@ -68,3 +68,4 @@
 (package! vscode-icon)
 (package! unicode-fonts)
 (package! web-beautify)
+(package! exec-path-from-shell)
