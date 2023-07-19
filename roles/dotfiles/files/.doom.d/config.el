@@ -1,19 +1,34 @@
-;; doom
-;;
-(setq doom-font (font-spec :family "JetBrains Mono" :size 18)
+(setq doom-font (font-spec :family "Fira Code" :size 18)
       doom-big-font (font-spec :family "JetBrains Mono" :size 32)
       doom-variable-pitch-font (font-spec :family "Overpass" :size 20)
       doom-unicode-font (font-spec :family "JuliaMono")
       doom-serif-font (font-spec :family "IBM Plex Mono" :weight 'light)
       projectile-project-search-path '("~/Documents/work" "~/Documents/personal"))
 
-;; (setq fancy-splash-image (concat doom-private-dir "splash/snoopy-3.gif"))
-
 (setq user-full-name "Victor Igor"
       user-mail-address "victor.0w3@gmail.com")
-(setq doom-theme 'doom-flatwhite)
-(setq org-directory "~/org/")
+
+(setq fancy-splash-image "~/Pictures/wallpaper/dinocode.png")
+
+;; (setq +doom-dashboard-menu-sections (cl-subseq +doom-dashboard-menu-sections 0 2))
+
+(assoc-delete-all "Open project" +doom-dashboard-menu-sections)
+(assoc-delete-all "Reload last eession" +doom-dashboard-menu-sections)
+(assoc-delete-all "Open org-agenda" +doom-dashboard-menu-sections)
+(assoc-delete-all "Recently opened files" +doom-dashboard-menu-sections)
+(assoc-delete-all "Jump to bookmark" +doom-dashboard-menu-sections)
+(assoc-delete-all "Open private configuration" +doom-dashboard-menu-sections)
+(assoc-delete-all "Open documentation" +doom-dashboard-menu-sections)
+
 (setq display-line-numbers-type t)
+
+(setq doom-theme 'doom-monokai-pro)
+
+(setq org-directory "~/org/")
+
+(setq display-line-numbers-type t)
+
+(add-hook 'window-setup-hook #'toggle-frame-maximized)
 
 (add-hook 'dired-mode-hook
       (lambda ()
@@ -22,7 +37,6 @@
 
 (setq
   global-whitespace-mode +1)
-
 ;; Package Configs
 ;;
 ;;
@@ -78,10 +92,10 @@
           :face mmm-declaration-submode-face
           :front "[^a-zA-Z]gql`" ;; regex to find the opening tag
           :back "`"))) ;; regex to find the closing tag
+
 (mmm-add-mode-ext-class 'js-mode nil 'js-graphql)
+
 (setq mmm-global-mode 'maybe)
-;; Optional configuration that hides the background color for a highlighted block
-;; I find it useful for debugging emacs, but when actually coding I dont want so much emphasis on submodes
 (setq mmm-submode-decoration-level 0)
 
 (add-hook 'js2-mode-hook (lambda () (setq js2-basic-offset 2)))
@@ -104,16 +118,6 @@
 ;;beautify
 ;;
 
-;; (eval-after-load 'json-mode
-;;   '(add-hook 'json-mode-hook
-;;              (lambda ()
-;;                (add-hook 'before-save-hook 'web-beautify-js-buffer t t))))
-
-;; (eval-after-load 'sgml-mode
-;;   '(add-hook 'html-mode-hook
-;;              (lambda ()
-;;                (add-hook 'before-save-hook 'web-beautify-html-buffer t t))))
-
 (eval-after-load 'css-mode
   '(add-hook 'css-mode-hook
              (lambda ()
@@ -128,3 +132,9 @@
   '(add-hook 'stylus-mode-hook
              (lambda ()
                (add-hook 'before-save-hook 'web-beautify-css-buffer t t))))
+
+
+;; astro
+(setq auto-mode-alist
+    (append '((".*\\.astro\\'" . web-mode))
+        auto-mode-alist))
